@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "3a0cbffd-b402-4dfc-bbdc-7abc4e9db500",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21419691",
+		"_collection_link": "https://www.postman.com/rezky99/workspace/weather-api/collection/21419691-3a0cbffd-b402-4dfc-bbdc-7abc4e9db500?action=share&source=collection_link&creator=21419691"
+	},
+	"item": [
+		{
+			"name": "api.openweathermap.org/data/2.5/forecast?lat=-6.261493&lon=106.810600&appid=3c23e91a6db1ccded1724593248086a7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validates response schema\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var schema = {\r",
+							"  \"cod\": {\r",
+							"    \"type\": \"string\"\r",
+							"  },\r",
+							"  \"message\": {\r",
+							"    \"type\": \"integer\"\r",
+							"  },\r",
+							"  \"cnt\": {\r",
+							"    \"type\": \"integer\"\r",
+							"  },\r",
+							"  \"list\": {\r",
+							"    \"type\": \"array\",\r",
+							"    \"dt\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"main\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"temp\": {\r",
+							"          \"type\": \"number\"\r",
+							"        },\r",
+							"        \"feels_like\": {\r",
+							"          \"type\": \"number\"\r",
+							"        },\r",
+							"        \"temp_min\": {\r",
+							"          \"type\": \"number\"\r",
+							"        },\r",
+							"        \"temp_max\": {\r",
+							"          \"type\": \"number\"\r",
+							"        },\r",
+							"        \"pressure\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"sea_level\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"grnd_level\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"humidity\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"temp_kf\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        }\r",
+							"      }\r",
+							"    },\r",
+							"    \"weather\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"id\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      },\r",
+							"      \"main\": {\r",
+							"        \"type\": \"string\"\r",
+							"      },\r",
+							"      \"description\": {\r",
+							"        \"type\": \"string\"\r",
+							"      },\r",
+							"      \"icon\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      }\r",
+							"    },\r",
+							"    \"clouds\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"all\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      }\r",
+							"    },\r",
+							"    \"wind\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"speed\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      },\r",
+							"      \"deg\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      },\r",
+							"      \"gust\": {\r",
+							"        \"type\": \"integer\"\r",
+							"      }\r",
+							"    }\r",
+							"  },\r",
+							"  \"/required\": [\r",
+							"    \"cod\",\r",
+							"    \"message\",\r",
+							"    \"cnt\",\r",
+							"    \"list\",\r",
+							"    \"weather\",\r",
+							"    \"clouds\",\r",
+							"    \"wind\"\r",
+							"  ]\r",
+							"};\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/forecast?lat=-6.261493&lon=106.810600&appid=3c23e91a6db1ccded1724593248086a7",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "-6.261493"
+						},
+						{
+							"key": "lon",
+							"value": "106.810600"
+						},
+						{
+							"key": "appid",
+							"value": "3c23e91a6db1ccded1724593248086a7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.openweathermap.org/data/2.5/air_pollution?lat=-6.261493&lon=106.810600&appid=3c23e91a6db1ccded1724593248086a7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validates response schema\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var schema = {\r",
+							"  \r",
+							"  \"coord\": {\r",
+							"    \"type\": \"string\"\r",
+							"  },\r",
+							"  \"properties\": {\r",
+							"    \"lon\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"lat\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"list\": {\r",
+							"    \"type\": \"array\",\r",
+							"    \"main\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"aqi\": {\r",
+							"          \"type\": \"number\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"components\": {\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"          \"co\": {\r",
+							"            \"type\": \"number\"\r",
+							"          },\r",
+							"          \"no\": {\r",
+							"            \"type\": \"number\"\r",
+							"          },\r",
+							"          \"no2\": {\r",
+							"            \"type\": \"number\"\r",
+							"          },\r",
+							"          \"o3\": {\r",
+							"            \"type\": \"number\"\r",
+							"          },\r",
+							"          \"so2\": {\r",
+							"            \"type\": \"number\"\r",
+							"          },\r",
+							"          \"pm2_5\": {\r",
+							"            \"type\": \"integer\"\r",
+							"          },\r",
+							"          \"pm10\": {\r",
+							"            \"type\": \"integer\"\r",
+							"          },\r",
+							"          \"nh3\": {\r",
+							"            \"type\": \"integer\"\r",
+							"          },\r",
+							"          \"dt\": {\r",
+							"            \"type\": \"integer\"\r",
+							"          }\r",
+							"        }\r",
+							"      }\r",
+							"    }\r",
+							"  },\r",
+							"  \"/required\": [\r",
+							"    \"coord\",\r",
+							"    \"list\",\r",
+							"    \"main\",\r",
+							"    \"components\",\r",
+							"    \"dt\"\r",
+							"  ]\r",
+							"};\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/air_pollution?lat=-6.261493&lon=106.810600&appid=3c23e91a6db1ccded1724593248086a7",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"air_pollution"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "-6.261493"
+						},
+						{
+							"key": "lon",
+							"value": "106.810600"
+						},
+						{
+							"key": "appid",
+							"value": "3c23e91a6db1ccded1724593248086a7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
